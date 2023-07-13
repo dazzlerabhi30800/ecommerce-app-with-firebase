@@ -1,0 +1,28 @@
+@import './Styles/style.css';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --font-Roboto: 'Oswald', sans-serif;
+  --font-Poppins: 'Poppins', sans-serif;
+}
+
+#root {
+  height: 100vh;
+  background: linear-gradient(to left #fefefe, #dfdde0);
+}
+
+
+button,
+button:active,
+a:active,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

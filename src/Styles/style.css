@@ -1,0 +1,134 @@
+header,
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a,
+nav button {
+    cursor: default;
+    text-decoration: none;
+}
+
+nav a:active {
+    color: blue;
+}
+
+
+.headerPc {
+    font-family: var(--font-Poppins);
+    padding: 5px 12px 5px 5px;
+}
+
+.navbarMobile {
+    position: fixed;
+    transform: translateX(-50%);
+    bottom: 5px;
+    left: 50%;
+    width: 95%;
+    background: linear-gradient(90deg, #f8a3bb, #df99f9, #f89c5b);
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+.navbarMobile a {
+    color: #000;
+}
+
+
+
+
+.logo--img {
+    width: 150px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.links>li>a {
+    text-decoration: none;
+    color: #000;
+    font-size: clamp(.8rem, 1.5vw, 1rem);
+}
+
+.additional--btns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+.cartBtn {
+    padding: 0;
+    color: rgb(16, 16, 16);
+    position: relative;
+    font-size: 2.1rem;
+}
+
+.cartQuantity {
+    position: absolute;
+    top: -1px;
+    right: -5px;
+    color: #fff;
+    background: linear-gradient(to top, #fe6e61, #d849ff);
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: transform 0.3s linear, opacity 0.3s ease-out 0.1s;
+}
+
+
+.show {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.username {
+    color: #ff7151;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+.logoutBtn {
+    border-radius: 3px;
+    /* box-shadow: inset 3px 3px 5px #a6a5a5; */
+    background: linear-gradient(to left, #ea7185, rgb(255, 124, 174));
+    color: #fff;
+}
+
+@media (width <=700px) {
+    .additional--btns {
+        display: none;
+    }
+}
+
+@media (width <=600px) {
+    .navbarPc {
+        display: none;
+    }
+}
+
+@media (hover: hover) {
+
+    a:hover,
+    button:hover {
+        cursor: pointer;
+    }
+}
