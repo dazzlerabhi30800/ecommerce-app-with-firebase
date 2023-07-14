@@ -9,6 +9,16 @@
 }
 
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+
 :root {
   --font-Roboto: 'Oswald', sans-serif;
   --font-Poppins: 'Poppins', sans-serif;
