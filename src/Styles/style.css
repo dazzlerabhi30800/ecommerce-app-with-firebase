@@ -3,6 +3,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: var(--font-Poppins);
 }
 
 nav a,
@@ -11,13 +12,17 @@ nav button {
     text-decoration: none;
 }
 
+button {
+    border: none;
+    outline: none;
+}
+
 nav a:active {
     color: blue;
 }
 
 
 .headerPc {
-    font-family: var(--font-Poppins);
     padding: 5px 12px 5px 5px;
 }
 
@@ -27,15 +32,45 @@ nav a:active {
     bottom: 5px;
     left: 50%;
     width: 95%;
-    background: linear-gradient(90deg, #f8a3bb, #df99f9, #f89c5b);
+    background: linear-gradient(90deg, #f8a3b0, #f9b9f3, #f9b07c);
     padding: 10px;
     margin: 0 auto;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .navbarMobile a {
     color: #000;
 }
+
+
+.dropdownLinks {
+    position: absolute;
+    bottom: 0px;
+    box-shadow: 1px 1px 20px 3px #00000038;
+    right: 0px;
+    list-style: none;
+    font-size: .9rem;
+    background: #fff;
+    padding: 5px 1rem;
+    transform: translate(400px, -70px);
+    opacity: 0;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.dropdownLinks li {
+    margin: 12px 0;
+}
+
+.dropdownLinks.show {
+    opacity: 1;
+    transform: translate(5px, -70px);
+}
+
+.dropdownLinks a {
+    font-weight: 500;
+}
+
 
 
 
@@ -113,19 +148,26 @@ nav a:active {
     color: #fff;
 }
 
+
+
 @media (width <=700px) {
     .additional--btns {
         display: none;
     }
-}
 
-@media (width <=600px) {
     .navbarPc {
         display: none;
     }
 }
 
+
 @media (hover: hover) {
+
+    li>a:hover,
+    a:hover {
+        color: #a68aa5;
+    }
+
 
     a:hover,
     button:hover {

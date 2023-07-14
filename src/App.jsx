@@ -5,11 +5,10 @@ import { Resize } from "./context/Resize";
 
 function App() {
   const size = Resize();
-  console.log(size);
   return (
     <>
       <Navbar />
-      <NavbarMobile />
+      {size <= 700 && <NavbarMobile />}
     </>
   );
 }
