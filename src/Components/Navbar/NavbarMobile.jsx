@@ -43,7 +43,7 @@ export const NavbarMobile = () => {
         {showMenu ? <AiOutlineClose /> : <RxHamburgerMenu />}
         <ul className={`dropdownLinks ${showMenu ? "show" : ""}`}>
           <li>
-            <a href="#">All</a>
+            <a href="#">Home</a>
           </li>
           <li>
             <a href="#">Electronics</a>

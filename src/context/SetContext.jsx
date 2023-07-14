@@ -5,12 +5,14 @@ export const SetContext = createContext();
 export const Actions = {
   showCart: "Show_Cart_Quantity",
   showDropdown: "Show_Dropdown_Menu",
+  showSearchInput: "Show_Input_Search",
 };
 
 export const SetContextProvider = ({ children }) => {
   const initialState = {
     show: false,
     showMenu: false,
+    showInput: false,
   };
 
   const stateReducer = (state, action) => {
@@ -23,6 +25,11 @@ export const SetContextProvider = ({ children }) => {
       case "Show_Dropdown_Menu":
         return {
           showMenu: !state.showMenu,
+        };
+
+      case "Show_Input_Search":
+        return {
+          showInput: !state.showInput,
         };
       default:
         return state;

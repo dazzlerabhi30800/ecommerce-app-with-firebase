@@ -26,6 +26,9 @@ nav a:active {
     padding: 5px 12px 5px 5px;
 }
 
+
+/* Nav Bar Mobile Styling */
+
 .navbarMobile {
     position: fixed;
     transform: translateX(-50%);
@@ -73,11 +76,13 @@ nav a:active {
 
 
 
+/* Navbar Pc Styling */
 
 
 .logo--img {
     width: 150px;
     height: 40px;
+    transition: 0.3s linear;
     object-fit: cover;
 }
 
@@ -92,6 +97,9 @@ nav a:active {
     color: #000;
     font-size: clamp(.8rem, 1.5vw, 1rem);
 }
+
+
+/* Additional Infos like username cart Quantity */
 
 .additional--btns {
     display: flex;
@@ -146,6 +154,47 @@ nav a:active {
     /* box-shadow: inset 3px 3px 5px #a6a5a5; */
     background: linear-gradient(to left, #ea7185, rgb(255, 124, 174));
     color: #fff;
+}
+
+
+
+/* Search Container Styling */
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 10px;
+}
+
+.searchContainer.fullWidth {
+    width: 100%;
+}
+
+.searchInput {
+    padding: 3px 5px;
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    background: none;
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 0;
+    opacity: 0;
+    transition: transform 0.3s ease-in;
+}
+
+.searchInput.searchShow {
+    opacity: 1;
+    transform: scaleX(1);
+    width: 100%;
+    flex-basis: 95%;
+}
+
+.searchBtn {
+    background: transparent;
+    font-size: 1.5rem;
+    padding: 0;
 }
 
 
