@@ -223,11 +223,13 @@ nav a:active {
 @media (width <=750px) {
     .additional--btns {
         display: none;
+        opacity: 0;
     }
 
 
     .navbarPc {
         display: none;
+        opacity: 0;
     }
 }
 
