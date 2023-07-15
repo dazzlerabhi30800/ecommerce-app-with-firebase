@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export const Scroll = () => {
-  const [scrollTop, setScrollTop] = useState(window.scrollY);
+const Scroll = () => {
+  const [scroll, setScroll] = useState(document.documentElement.scrollTop);
 
-  function checkScroll() {
-    setScrollTop(window.scrollY);
+  function checkScrollTop() {
+    setScroll(document.documentElement.scrollTop);
   }
-  useEffect(() => {
-    window.addEventListener("scroll", checkScroll);
-    return () => window.removeEventListener("scroll", checkScroll);
-  }, [scrollTop]);
 
-  return scrollTop;
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  });
+  return scroll;
 };
+
+export default Scroll;

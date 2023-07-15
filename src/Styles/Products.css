@@ -9,7 +9,7 @@
     font-family: var(--font-Bangers);
     margin: 0 auto;
     display: block;
-    font-size: clamp(2rem, 3.5vw, 4.5rem);
+    font-size: clamp(3rem, 3.5vw, 3.5rem);
     background: linear-gradient(to left, #fd5e73 30%, #f5a016);
     -webkit-background-clip: text;
     background-clip: text;
@@ -18,6 +18,7 @@
 
 
 .product--wrapper {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(1, 100%);
     gap: 1.5rem;
@@ -34,10 +35,12 @@
     box-shadow: 1px 1px 15px 2px #00000050;
     border-radius: 5px;
     padding: 10px 0;
-    background: radial-gradient(circle, #f8abc6, #afc9fd);
+    /* background: radial-gradient(circle, #f8abc6, #afc9fd); */
+    background: radial-gradient(circle, #f8dde6, #d8e1f2);
     gap: .9rem;
     width: 100%;
     font-family: var(--font-Poppins);
+    border-left: 4px solid #7f8dfd;
 }
 
 .product img {

@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Logo from "/logo.png";
 import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
-import { Scroll } from "../../context/Scroll";
 import { SetContext } from "../../context/SetContext";
 import { Actions } from "../../context/SetContext";
 import { Resize } from "../../context/Resize";
+import Scroll from "../../context/Scroll";
 
 export const Navbar = () => {
   const { data, dispatch } = useContext(SetContext);
-  const scrollTop = Scroll();
   const size = Resize();
+  const scroll = Scroll();
 
   return (
-    <header className="headerPc">
+    <header className={`headerPc ${scroll > 60 ? "glued" : ""}`}>
       <img
         style={{
           width: data.showInput && size <= 750 ? "0px" : "150px",
