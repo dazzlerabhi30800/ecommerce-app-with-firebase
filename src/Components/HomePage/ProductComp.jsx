@@ -1,16 +1,47 @@
 import React from "react";
+import { Resize } from "../../context/Resize";
+import { formatPrice } from "../../context/SetContext";
 
-const ProductComp = () => {
+const ProductComp = ({
+  item: { name, stock, image, quantity, price, discount },
+}) => {
+  const size = Resize();
+  const handleActualPrice = (price, discount) => {
+    return Math.floor((price * 100) / (100 - discount));
+  };
+
   return (
     <div className="product">
-      <img src="./product-imgs/sweatshirt.png" alt="sweatshirt" />
-      <h2 className="productName">Nike Sweatshirt Plain Maple Color</h2>
-      <span>in Stock</span>
+      <img src={image} alt={name} />
+      <h2 className="productName">{name}</h2>
+      <div
+        style={{
+          display: "flex",
+          padding: "0 15px",
+          gap: "1rem",
+          alignItems: "center",
+          textAlign: "center",
+          justifyContent: size < 600 && "center",
+        }}
+      >
+        <span>in Stock</span>
+        <span>{discount}%</span>
+        <span
+          style={{
+            fontWeight: "600",
+            fontSize: "0.9rem",
+            textDecoration: "line-through",
+          }}
+          className="actualPrice"
+        >
+          ₹{formatPrice(handleActualPrice(price, discount))}
+        </span>
+      </div>
       <div className="productBtn">
-        <span className="price">$150</span>
+        <span className="price">₹{formatPrice(price)}</span>
         <div className="quantityInfo">
           <button>-</button>
-          <span className="quantity">0</span>
+          <span className="quantity">{quantity}</span>
           <button>+</button>
         </div>
       </div>

@@ -1,0 +1,278 @@
+{
+  "products": [
+    {
+      "name": "Nike SweatShirt Red Color",
+      "stock": true,
+      "image": "./product-imgs/sweatshirt.png",
+      "quantity": 0,
+      "price": 1399,
+      "discount": 22
+    },
+    {
+      "name": "Majestic Man Slim Fit Formal Shirt",
+      "stock": true,
+      "image": "./product-imgs/majestic-formal-shirt.png",
+      "quantity": 0,
+      "price": 799,
+      "discount": 12
+    },
+
+    {
+      "name": "LEOTUDE Regular Fit Half Sleeve Round T-Shirt",
+      "stock": true,
+      "image": "./product-imgs/leotude-tshirt.png",
+      "quantity": 0,
+      "price": 269,
+      "discount": 17
+    },
+
+    {
+      "name": "London Hills Solid Men's Round Neck T-Shirt",
+      "stock": true,
+      "image": "./product-imgs/london-hills-solid-tshirt.png",
+      "quantity": 0,
+      "price": 189,
+      "discount": 15
+    },
+
+    {
+      "name": "Apple Iphone 18 (128 GB) RED",
+      "stock": true,
+      "image": "./product-imgs/apple-iphone-14.png",
+      "quantity": 0,
+      "price": 66499,
+      "discount": 25
+    },
+
+    {
+      "name": "Realme Narzo 60 (Mars Orange, 8GB + 128GB) 90HZ",
+      "stock": true,
+      "image": "./product-imgs/realme-narzo-60.png",
+      "quantity": 0,
+      "price": 17999,
+      "discount": 32
+    },
+
+    {
+      "name": "OnePlus 11 5G",
+      "stock": true,
+      "image": "./product-imgs/one-plus-11.png",
+      "quantity": 0,
+      "price": 61999,
+      "discount": 19
+    },
+
+    {
+      "name": "OnePlus 11R 5G (16GB + 256GB)",
+      "stock": true,
+      "image": "./product-imgs/one-plus-11R.png",
+      "quantity": 0,
+      "price": 44998,
+      "discount": 20
+    },
+    {
+      "name": "Samsung Galaxy S20 FE 5G",
+      "stock": true,
+      "image": "./product-imgs/samsung-mobile.png",
+      "quantity": 0,
+      "price": 44998,
+      "discount": 25
+    },
+    {
+      "name": "Beardo Activated Charcoal Face Wash",
+      "stock": true,
+      "image": "./product-imgs/beardo-charcoal-face-wash.png",
+      "quantity": 0,
+      "price": 190,
+      "discount": 31
+    },
+
+    {
+      "name": "Minimalist 10% Face Serum for Acne Marks",
+      "stock": true,
+      "image": "./product-imgs/minimalist-face-wash.png",
+      "quantity": 0,
+      "price": 539,
+      "discount": 10
+    },
+    {
+      "name": "Mamaearth Vitamin C Face Wash 150ml",
+      "stock": true,
+      "image": "./product-imgs/mama-earth-vitamin-c-face-wash.png",
+      "quantity": 0,
+      "price": 318,
+      "discount": 20
+    },
+    {
+      "name": "WOW Skin Science Apple Cider Vinegar Face Wash 150ml",
+      "stock": true,
+      "image": "./product-imgs/wow-apple-cider-face-wash.png",
+      "quantity": 0,
+      "price": 199,
+      "discount": 49
+    },
+    {
+      "name": "Blue Lock 1",
+      "stock": true,
+      "image": "./product-imgs/blue-lock-manga-volume-1.jpg",
+      "quantity": 0,
+      "price": 618,
+      "discount": 20
+    },
+    {
+      "name": "One Punch Man Manga Volume 1",
+      "stock": true,
+      "image": "./product-imgs/one-punch-man-manga-volume-1.jpg",
+      "quantity": 0,
+      "price": 396,
+      "discount": 15
+    },
+    {
+      "name": "Naruto Volume 1",
+      "stock": true,
+      "image": "./product-imgs/naruto-manga-volume-1.jpg",
+      "quantity": 0,
+      "price": 560,
+      "discount": 20
+    },
+    {
+      "name": "Jujutsu Kaisen Volume 1",
+      "stock": true,
+      "image": "./product-imgs/jujutsu-kaisen-manga.jpg",
+      "quantity": 0,
+      "price": 497,
+      "discount": 20
+    },
+
+    {
+      "name": "Atomic Habits: The Life Changing",
+      "stock": true,
+      "image": "./product-imgs/atomic-habits.jpg",
+      "quantity": 0,
+      "price": 399,
+      "discount": 15
+    },
+
+    {
+      "name": "The Psychology of Money",
+      "stock": true,
+      "image": "./product-imgs/psychology-of-money.jpg",
+      "quantity": 0,
+      "price": 259,
+      "discount": 10
+    },
+
+    {
+      "name": "Xiomi Notebook Ultra Max 11th Intel i5 16GB/512GB SSD",
+      "stock": true,
+      "image": "./product-imgs/xiomi-notebook-ultra-laptop.png",
+      "quantity": 0,
+      "price": 46999,
+      "discount": 39
+    },
+    {
+      "name": "MSI Cyborg 15, Intel 12th Gen i5-12450H 16GB/512GB SSD",
+      "stock": true,
+      "image": "./product-imgs/msi-cyborg-laptop.png",
+      "quantity": 0,
+      "price": 62990,
+      "discount": 30
+    },
+    {
+      "name": "Honor Magicbook 15, AMD Ryzen 5 5500U",
+      "stock": true,
+      "image": "./product-imgs/honor-magic-laptop.png",
+      "quantity": 0,
+      "price": 39990,
+      "discount": 44
+    },
+    {
+      "name": "HP Laptop 15, 13th Gen Intel Core i5-1335U",
+      "stock": true,
+      "image": "./product-imgs/hp15-laptop.png",
+      "quantity": 0,
+      "price": 64990,
+      "discount": 15
+    },
+    {
+      "name": "Dell G15 5520 Gaming Laptop, i5-12500H, 16GB+512GB SSD, NVIDIA RTX 3050",
+      "stock": true,
+      "image": "./product-imgs/dell-g15-laptop.png",
+      "quantity": 0,
+      "price": 72990,
+      "discount": 28
+    },
+    {
+      "name": "Lenovo Ideapad Slim 3 Intel core i5 12th Gen 8GB+512GB/Win11",
+      "stock": true,
+      "image": "./product-imgs/lenovo-slim3-laptop.png",
+      "quantity": 0,
+      "price": 50990,
+      "discount": 34
+    },
+    {
+      "name": "boAt Immortal 121 TWS Wireless Gaming Ear Buds",
+      "stock": true,
+      "image": "./product-imgs/boat-immortal-tws.png",
+      "quantity": 0,
+      "price": 1398,
+      "discount": 60
+    },
+    {
+      "name": "JBL Wave 200 TWS, True Wireless in Ear-Earbuds with Mic",
+      "stock": true,
+      "image": "./product-imgs/jbl-wave-tws.png",
+      "quantity": 0,
+      "price": 2298,
+      "discount": 62
+    },
+    {
+      "name": "JBL Tune 230NC TWS, 40 Hrs Playtime",
+      "stock": true,
+      "image": "./product-imgs/jbl-tune-tws.png",
+      "quantity": 0,
+      "price": 4988,
+      "discount": 38
+    },
+    {
+      "name": "JBL C100SI Wired in Earphones with Mic",
+      "stock": true,
+      "image": "./product-imgs/jbl-earphones.png",
+      "quantity": 0,
+      "price": 598,
+      "discount": 54
+    },
+    {
+      "name": "Realme Buds 2",
+      "stock": true,
+      "image": "./product-imgs/realme-buds2.png",
+      "quantity": 0,
+      "price": 598,
+      "discount": 25
+    },
+    {
+      "name": "Dr Luxur Weavemonster Ergonomic Gaming Chair",
+      "stock": true,
+      "image": "./product-imgs/luxur-gaming-chair.png",
+      "quantity": 0,
+      "price": 17946,
+      "discount": 49
+    },
+    {
+      "name": "Drogo Multipurpose Ergonomic Gaming Chair With Adjustable Seat",
+      "stock": true,
+      "image": "./product-imgs/drogo-gaming-chair.png",
+      "quantity": 0,
+      "price": 12490,
+      "discount": 54
+    },
+    {
+      "name": "Night Hawk Ergonomic Gaming Chair",
+      "stock": true,
+      "image": "./product-imgs/night-hawk-gaming-chair.png",
+      "quantity": 0,
+      "price": 11490,
+      "discount": 52
+    }
+  ]
+}

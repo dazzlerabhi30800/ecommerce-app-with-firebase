@@ -20,9 +20,9 @@
 .product--wrapper {
     display: grid;
     grid-template-columns: repeat(1, 100%);
-    gap: 1rem;
-    /* padding: 1rem; */
-    margin: 1.5rem 0;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    margin: 3rem 0;
     text-align: center;
 }
 
@@ -32,6 +32,7 @@
     flex-direction: column;
     box-shadow: 1px 1px 15px 2px #00000050;
     border-radius: 5px;
+    padding: 10px 0;
     background: radial-gradient(circle, #f8abc6, #afc9fd);
     gap: .9rem;
     width: 100%;
@@ -48,7 +49,7 @@
 .productName {
     font-family: var(--font-Roboto);
     margin-left: 15px;
-    font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+    font-size: clamp(1.1rem, 1.7vw, 1.5rem);
 }
 
 .product>span {

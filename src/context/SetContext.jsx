@@ -8,6 +8,13 @@ export const Actions = {
   showSearchInput: "Show_Input_Search",
 };
 
+export const formatPrice = (price) => {
+  return price
+    .toString()
+    .split(/(?=(?:\d{3})+(?:\.|$))/g)
+    .join(",");
+};
+
 export const SetContextProvider = ({ children }) => {
   const initialState = {
     show: false,
