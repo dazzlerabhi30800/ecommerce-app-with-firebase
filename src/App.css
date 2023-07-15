@@ -1,5 +1,5 @@
-@import './Styles/style.css';
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* @import './Styles/style.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 
 * {
@@ -22,6 +22,7 @@ body {
 :root {
   --font-Roboto: 'Oswald', sans-serif;
   --font-Poppins: 'Poppins', sans-serif;
+  --font-Bangers: "Bangers", sans-serif;
 }
 
 #root {

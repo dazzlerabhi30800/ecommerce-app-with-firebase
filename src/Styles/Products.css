@@ -1,0 +1,123 @@
+.products--section {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 0;
+}
+
+.sectionHeading {
+    font-family: var(--font-Bangers);
+    margin: 0 auto;
+    display: block;
+    font-size: clamp(2rem, 3.5vw, 4.5rem);
+    background: linear-gradient(to left, #fd5e73 30%, #f5a016);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.product--wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    gap: 1rem;
+    /* padding: 1rem; */
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+
+.product {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 15px 2px #00000050;
+    border-radius: 5px;
+    background: radial-gradient(circle, #f8abc6, #afc9fd);
+    gap: .9rem;
+    width: 100%;
+    font-family: var(--font-Poppins);
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 20px #00000057);
+}
+
+.productName {
+    font-family: var(--font-Roboto);
+    margin-left: 15px;
+    font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+}
+
+.product>span {
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.productBtn {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.quantityInfo {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #dcdbdb;
+    box-shadow: inset 0px 0px 10px #00000041;
+}
+
+.quantityInfo button {
+    padding: 5px 10px;
+    background: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.quantityInfo button:nth-child(1) {
+    border-right: 1px dashed #827e7e;
+}
+
+.quantityInfo button:nth-child(3) {
+    border-left: 1px dashed #827e7e;
+}
+
+.addCartBtn {
+    width: 90%;
+    margin: 10px auto 15px;
+    border-radius: 5px;
+    padding: 10px !important;
+    font-weight: 600;
+    background: #c1f85b;
+}
+
+
+@media (hover:hover) {
+    .addCartBtn:hover {
+        background: #faee46;
+    }
+}
+
+
+@media (width >=600px) {
+    .product--wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+
+    .productBtn {
+        justify-content: start;
+    }
+}

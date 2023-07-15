@@ -1,79 +1,89 @@
-.banner--wrapper {
-    display: flex;
-    height: auto;
-    width: 100%;
+.main--container {
+  padding-bottom: 7rem;
 }
 
+.banner--wrapper {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
 
 .swiper {
-    width: 100%;
-    height: 100%;
-    --swiper-pagination-color: #87f65e;
-    --swiper-pagination-left: auto;
-    --swiper-pagination-right: 8px;
-    --swiper-pagination-bottom: 10px;
-    --swiper-pagination-top: auto;
-    --swiper-pagination-fraction-color: inherit;
-    --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
-    --swiper-pagination-bullet-size: 12px;
-    --swiper-pagination-bullet-width: 12px;
-    --swiper-pagination-bullet-height: 12px;
-    --swiper-pagination-bullet-inactive-color: #e8e6e6;
-    --swiper-pagination-bullet-inactive-opacity: 0.8;
-    --swiper-pagination-bullet-opacity: 1;
-    --swiper-pagination-bullet-horizontal-gap: 4px;
-    --swiper-pagination-bullet-vertical-gap: 6px;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+
+  --swiper-navigation-size: 40px;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 50px;
+  --swiper-navigation-color: #f5f5f5;
+
 }
 
-/* .swiper-slide {
-    width: 100%;
-    height: 100%;
+
+/* :host>>>.swiper-pagination {
+  pointer-events: all !important;
 } */
 
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+}
 
 .bannerImg {
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 }
-
 
 @media (width >=700px) {
-    .banner--wrapper {
-        height: 60vh;
-    }
+  .banner--wrapper {
+    height: 60vh;
+  }
 
-    .bannerImg {
-        height: 100%;
-    }
+  .bannerImg {
+    height: 100%;
+  }
 }
 
-
 @media (width >=1000px) {
-    .banner--wrapper {
-        height: 70vh;
-    }
+  .banner--wrapper {
+    height: 70vh;
+  }
 
 }
 
 
 
 @media (width >=1200px) {
-    .banner--wrapper {
-        height: 80vh;
-    }
+  .banner--wrapper {
+    height: 70vh;
+    transition: background 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
 
-    .bannerImg {
-        object-fit: fill;
-    }
-}
+  .banner--0 {
+    background: #7362f0;
+  }
+
+  .banner--1 {
+    background: #315eae;
+  }
 
 
-@media (width >=1400px) {
-    .banner--wrapper {
-        height: 90vh;
-    }
+  .banner--2 {
+    background: #f6784e;
+  }
 
-    .bannerImg {
-        object-fit: fit;
-    }
+
+  .banner--3 {
+    background: #f973dc;
+  }
+
+  .banner--4 {
+    background: #2d3e7a;
+  }
+
+  .bannerImg {
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 20px #00000094);
+  }
 }

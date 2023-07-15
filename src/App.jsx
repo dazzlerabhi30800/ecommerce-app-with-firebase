@@ -3,6 +3,7 @@ import Home from "./Components/HomePage/Home";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { NavbarMobile } from "./Components/Navbar/NavbarMobile";
 import { Resize } from "./context/Resize";
+import "./Styles/style.css";
 
 function App() {
   const size = Resize();
