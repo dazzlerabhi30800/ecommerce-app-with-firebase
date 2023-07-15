@@ -12,7 +12,7 @@ const ProductComp = ({
 
   return (
     <div className="product">
-      <img src={image} alt={name} />
+      <img src={image} alt={name} loading="lazy" />
       <h2 className="productName">{name}</h2>
       <div
         style={{
