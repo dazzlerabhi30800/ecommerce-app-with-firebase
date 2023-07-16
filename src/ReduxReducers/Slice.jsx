@@ -1,4 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  createSlice,
+  getDefaultMiddleware,
+} from "@reduxjs/toolkit";
 import ProductData from "../Components/Data/ProductData.json";
 
 // const initialState = {
@@ -9,15 +13,13 @@ import ProductData from "../Components/Data/ProductData.json";
 
 const productSlice = createSlice({
   name: "allFeatures",
-  initialState: JSON.parse(localStorage.getItem("productItem")) || [
-    ...ProductData.products,
-  ],
+  initialState: [...ProductData.products],
   reducers: {
     addToCart: (state, action) => {
       state.map((item) => {
         if (item.id === action.payload) {
           item.quantity = item.quantity + 1;
-          localStorage.setItem("productItem", JSON.stringify(state));
+          //   localStorage.setItem("productItem", JSON.stringify(state));
         } else {
           item = item;
         }
@@ -27,7 +29,7 @@ const productSlice = createSlice({
       state.map((item) => {
         if (item.id === action.payload) {
           item.quantity = item.quantity - 1 <= 0 ? 0 : item.quantity - 1;
-          localStorage.setItem("productItem", JSON.stringify(state));
+          //   localStorage.setItem("productItem", JSON.stringify(state));
         } else {
           return item;
         }
@@ -36,20 +38,30 @@ const productSlice = createSlice({
   },
 });
 
-// const productSlice = createSlice({
-//   name: "allFeatures",
-//   initialState: [],
-//   reducers: {
-//     addTodo: (state, action) => {
-//       const todo = {
-//         id: Date.now(),
-//         text: action.payload,
-//       };
-//       return [...state, todo];
-//     },
-//   },
-// });
+const localStorageMiddleware = ({ getState }) => {
+  return (next) => (action) => {
+    const result = next(action);
+    console.log(getState().allFeatures);
+    localStorage.setItem("applicationState", JSON.stringify(getState()));
+    return result;
+  };
+};
+
+const rehydrateStore = () => {
+  if (localStorage.getItem("applicationState") !== null) {
+    return JSON.parse(localStorage.getItem("applicationState")); // re-hydrate the store
+  }
+};
+
+const store = configureStore({
+  reducer: {
+    allFeatures: productSlice.reducer,
+  },
+  preloadedState: rehydrateStore(),
+  middleware: getDefaultMiddleware().concat(localStorageMiddleware),
+});
 
 export const { addToCart, minusCart } = productSlice.actions;
 
-export default productSlice.reducer;
+// export default productSlice.reducer;
+export default store;
