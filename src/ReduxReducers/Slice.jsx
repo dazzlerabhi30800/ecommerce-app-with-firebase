@@ -13,23 +13,31 @@ import ProductData from "../Components/Data/ProductData.json";
 
 const productSlice = createSlice({
   name: "allFeatures",
-  initialState: [...ProductData.products],
+  initialState: {
+    products: [...ProductData.products],
+    cart: [],
+  },
   reducers: {
     addToCart: (state, action) => {
-      state.map((item) => {
+      state.products.map((item) => {
         if (item.id === action.payload) {
           item.quantity = item.quantity + 1;
-          //   localStorage.setItem("productItem", JSON.stringify(state));
+          const searchCart = state.cart.find((cart) => cart.id === item.id);
+          state.cart = state.products.filter(
+            (product) => product.quantity >= 1
+          );
         } else {
           item = item;
         }
       });
     },
     minusCart: (state, action) => {
-      state.map((item) => {
+      state.products.map((item) => {
         if (item.id === action.payload) {
           item.quantity = item.quantity - 1 <= 0 ? 0 : item.quantity - 1;
-          //   localStorage.setItem("productItem", JSON.stringify(state));
+          state.cart = state.products.filter(
+            (product) => product.quantity >= 1
+          );
         } else {
           return item;
         }
@@ -41,7 +49,6 @@ const productSlice = createSlice({
 const localStorageMiddleware = ({ getState }) => {
   return (next) => (action) => {
     const result = next(action);
-    console.log(getState().allFeatures);
     localStorage.setItem("applicationState", JSON.stringify(getState()));
     return result;
   };
