@@ -1,14 +1,18 @@
 import React from "react";
 import { Resize } from "../../context/Resize";
 import { formatPrice } from "../../context/SetContext";
+import { useDispatch } from "react-redux";
+import { addToCart, minusCart } from "../../ReduxReducers/Slice";
 
 const ProductComp = ({
-  item: { name, stock, image, quantity, price, discount },
+  item: { name, stock, image, quantity, price, discount, id },
 }) => {
   const size = Resize();
   const handleActualPrice = (price, discount) => {
     return Math.floor((price * 100) / (100 - discount));
   };
+
+  const dispatch = useDispatch();
 
   return (
     <div className="product">
@@ -40,9 +44,9 @@ const ProductComp = ({
       <div className="productBtn">
         <span className="price">₹{formatPrice(price)}</span>
         <div className="quantityInfo">
-          <button>-</button>
+          <button onClick={() => dispatch(minusCart(id))}>-</button>
           <span className="quantity">{quantity}</span>
-          <button>+</button>
+          <button onClick={() => dispatch(addToCart(id))}>+</button>
         </div>
       </div>
       <button className="btn addCartBtn">Add to Cart </button>
