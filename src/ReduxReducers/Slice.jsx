@@ -5,15 +5,10 @@ import {
 } from "@reduxjs/toolkit";
 import ProductData from "../Components/Data/ProductData.json";
 
-// const initialState = {
-//   products: [...ProductData.products],
-//   showMenu: false,
-// };
-// console.log(initialState.products);
-
 const productSlice = createSlice({
   name: "allFeatures",
   initialState: {
+    showDropDown: false,
     products: [...ProductData.products],
     cart: [],
   },
@@ -23,9 +18,12 @@ const productSlice = createSlice({
         if (item.id === action.payload) {
           item.quantity = item.quantity + 1;
           const searchCart = state.cart.find((cart) => cart.id === item.id);
-          state.cart = state.products.filter(
-            (product) => product.quantity >= 1
-          );
+          console.log(searchCart);
+          if (searchCart) {
+            searchCart.quantity += 1;
+          } else {
+            state.cart.push({ ...item, isAnimate: false });
+          }
         } else {
           item = item;
         }
@@ -35,13 +33,46 @@ const productSlice = createSlice({
       state.products.map((item) => {
         if (item.id === action.payload) {
           item.quantity = item.quantity - 1 <= 0 ? 0 : item.quantity - 1;
-          state.cart = state.products.filter(
-            (product) => product.quantity >= 1
-          );
+          const searchCart = state.cart.find((cart) => cart.id === item.id);
+          if (searchCart) {
+            searchCart.quantity =
+              searchCart.quantity - 1 <= 0 ? 0 : searchCart.quantity - 1;
+          } else {
+            return;
+          }
+          state.cart = state.cart.filter((item) => item.quantity >= 1);
         } else {
           return item;
         }
       });
+    },
+    removeCart: (state, action) => {
+      state.products.map((item) => {
+        if (item.id === action.payload) {
+          item.quantity = 0;
+          state.cart = state.cart.filter((product) => product.id !== item.id);
+        } else {
+          return item;
+        }
+      });
+    },
+  },
+});
+
+// to show input and dropdown menus etc
+
+const menuSlice = createSlice({
+  name: "showComp",
+  initialState: {
+    showInput: false,
+    showDropdown: false,
+  },
+  reducers: {
+    showFullInput: (state, action) => {
+      state.showInput = !state.showInput;
+    },
+    handleDropdown: (state, action) => {
+      state.showDropdown = !state.showDropdown;
     },
   },
 });
@@ -63,12 +94,15 @@ const rehydrateStore = () => {
 const store = configureStore({
   reducer: {
     allFeatures: productSlice.reducer,
+    showAllComps: menuSlice.reducer,
   },
   preloadedState: rehydrateStore(),
   middleware: getDefaultMiddleware().concat(localStorageMiddleware),
 });
 
-export const { addToCart, minusCart } = productSlice.actions;
+export const { addToCart, minusCart, removeCart } = productSlice.actions;
+
+export const { showFullInput, handleDropdown } = menuSlice.actions;
 
 // export default productSlice.reducer;
 export default store;
