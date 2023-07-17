@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from "react";
 import ProductComp from "./ProductComp";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  sortCartAscending,
-  sortCartDescending,
-} from "../../ReduxReducers/Slice";
+import { BsArrowDownUp } from "react-icons/bs";
+import { sortCarProducts } from "../../ReduxReducers/Slice";
 
 const Products = () => {
   let product = useSelector((data) => data.allFeatures.products);
+  let loading = useSelector((data) => data.allFeatures.loading);
   const dispatch = useDispatch();
 
-  // console.log(productSplice);
+  // console.log(product);
 
   return (
     <div className="products--section">
       <h1 className="sectionHeading">Products</h1>
-      <div className="filterButtons">
+      <button
+        className="filterButton"
+        onClick={() => dispatch(sortCarProducts())}
+      >
+        {product[0].price > product[32].price
+          ? "Filter By Low to High"
+          : "Filter By High to Low"}
+        <BsArrowDownUp style={{ marginLeft: "8px" }} />
+      </button>
+      {/* <div className="filterButtons">
         <button
           onClick={() => dispatch(sortCartAscending())}
           className="btn sortBtn"
@@ -28,12 +36,16 @@ const Products = () => {
         >
           Hight to Low
         </button>
-      </div>
-      <div className="product--wrapper">
-        {product.map((item, index) => (
-          <ProductComp item={item} key={index} />
-        ))}
-      </div>
+      </div> */}
+      {product.length > 0 ? (
+        <div className="product--wrapper">
+          {product.map((item, index) => (
+            <ProductComp item={item} key={index} />
+          ))}
+        </div>
+      ) : (
+        <div className="notFound">No Product found by that name</div>
+      )}
     </div>
   );
 };

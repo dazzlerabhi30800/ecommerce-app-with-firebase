@@ -54,12 +54,27 @@ const productSlice = createSlice({
         }
       });
     },
-    sortCartDescending: (state, action) => {
-      state.products = state.products.sort((a, b) => b.price - a.price);
+    searchProducts: (state, action) => {
+      if (action.payload.length > 0) {
+        state.products = state.products.filter((product) =>
+          product.name.toLowerCase().includes(action.payload.toLowerCase())
+        );
+      } else {
+        let storageData = JSON.parse(localStorage.getItem("applicationState"))
+          .allFeatures.products;
+        state.products = storageData ? storageData : [...ProductData.products];
+      }
     },
-    sortCartAscending: (state, action) => {
-      state.products = state.products.sort((a, b) => a.price - b.price);
+    sortCarProducts: (state, action) => {
+      if (state.products[0].price > state.products[32].price) {
+        state.products = state.products.sort((a, b) => a.price - b.price);
+      } else {
+        state.products = state.products.sort((a, b) => b.price - a.price);
+      }
     },
+    // sortCartAscending: (state, action) => {
+    //   state.products = state.products.sort((a, b) => a.price - b.price);
+    // },
   },
 });
 
@@ -84,6 +99,7 @@ const menuSlice = createSlice({
 const localStorageMiddleware = ({ getState }) => {
   return (next) => (action) => {
     const result = next(action);
+    if (action.type === "allFeatures/searchProducts") return;
     localStorage.setItem("applicationState", JSON.stringify(getState()));
     return result;
   };
@@ -108,8 +124,8 @@ export const {
   addToCart,
   minusCart,
   removeCart,
-  sortCartAscending,
-  sortCartDescending,
+  searchProducts,
+  sortCarProducts,
 } = productSlice.actions;
 
 export const { showFullInput, handleDropdown } = menuSlice.actions;

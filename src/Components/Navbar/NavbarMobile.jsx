@@ -19,7 +19,7 @@ export const NavbarMobile = () => {
       <a className="cartBtn" style={{ fontSize: "1.5rem" }} href="#">
         <BiCart />
         <span
-          style={{ fontSize: "10px", padding: "1px 4px" }}
+          style={{ fontSize: "9px", padding: "1px 6px" }}
           className={showCartLength > 0 ? "cartQuantity show" : "cartQuantity"}
         >
           {showCartLength}

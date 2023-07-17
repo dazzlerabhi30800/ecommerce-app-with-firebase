@@ -134,9 +134,33 @@
 }
 
 
+
+.notFound {
+    margin: 4rem auto;
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 500;
+    color: #f75bb6;
+    font-family: var(--font-Bangers);
+}
+
+.filterButton {
+    margin: 3rem auto;
+    background: linear-gradient(to left, #f97c7c, #bf99fc);
+    padding: 9px 15px;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: var(--font-Poppins);
+}
+
+
 @media (hover:hover) {
     .addCartBtn:hover {
         background: #faee46;
+    }
+
+    .filterButton:hover {
+        filter: brightness(120%) contrast(120%);
     }
 }
 
