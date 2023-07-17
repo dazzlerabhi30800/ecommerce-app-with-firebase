@@ -218,9 +218,7 @@ nav a:active {
     padding: 0;
 }
 
-
-
-@media (width <=750px) {
+@media only Screen and (max-width: 750px) {
     .additional--btns {
         display: none;
         opacity: 0;
@@ -233,7 +231,7 @@ nav a:active {
     }
 }
 
-@media (width > 750px) {
+@media only Screen and (min-width : 751px) {
     .searchContainer.fullWidth {
         width: 45%;
     }
