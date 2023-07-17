@@ -1,4 +1,3 @@
-import React, { useContext, useState, useEffect } from "react";
 import Logo from "/logo.png";
 import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { Resize } from "../../context/Resize";
@@ -82,7 +81,6 @@ export const Navbar = () => {
         <span className="username">Hi, Username</span>
         <button className="btn logoutBtn">Logout</button>
       </div>
-      {/* {size <= 700 && <span className="username">Hi, Username</span>} */}
     </header>
   );
 };

@@ -8,7 +8,6 @@ import ProductData from "../Components/Data/ProductData.json";
 const productSlice = createSlice({
   name: "allFeatures",
   initialState: {
-    showDropDown: false,
     products: [...ProductData.products],
     cart: [],
   },
@@ -18,7 +17,6 @@ const productSlice = createSlice({
         if (item.id === action.payload) {
           item.quantity = item.quantity + 1;
           const searchCart = state.cart.find((cart) => cart.id === item.id);
-          console.log(searchCart);
           if (searchCart) {
             searchCart.quantity += 1;
           } else {
@@ -55,6 +53,12 @@ const productSlice = createSlice({
           return item;
         }
       });
+    },
+    sortCartDescending: (state, action) => {
+      state.products = state.products.sort((a, b) => b.price - a.price);
+    },
+    sortCartAscending: (state, action) => {
+      state.products = state.products.sort((a, b) => a.price - b.price);
     },
   },
 });
@@ -100,7 +104,13 @@ const store = configureStore({
   middleware: getDefaultMiddleware().concat(localStorageMiddleware),
 });
 
-export const { addToCart, minusCart, removeCart } = productSlice.actions;
+export const {
+  addToCart,
+  minusCart,
+  removeCart,
+  sortCartAscending,
+  sortCartDescending,
+} = productSlice.actions;
 
 export const { showFullInput, handleDropdown } = menuSlice.actions;
 

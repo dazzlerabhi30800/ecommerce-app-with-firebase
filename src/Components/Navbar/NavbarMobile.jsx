@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { AiFillHome, AiOutlineHome, AiOutlineClose } from "react-icons/ai";
 import { BiUser, BiSolidUser, BiCart, BiSolidCartAlt } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
