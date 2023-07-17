@@ -23,20 +23,6 @@ const Products = () => {
           : "Filter By High to Low"}
         <BsArrowDownUp style={{ marginLeft: "8px" }} />
       </button>
-      {/* <div className="filterButtons">
-        <button
-          onClick={() => dispatch(sortCartAscending())}
-          className="btn sortBtn"
-        >
-          Low to High
-        </button>
-        <button
-          onClick={() => dispatch(sortCartDescending())}
-          className="btn sortBtn"
-        >
-          Hight to Low
-        </button>
-      </div> */}
       {product.length > 0 ? (
         <div className="product--wrapper">
           {product.map((item, index) => (

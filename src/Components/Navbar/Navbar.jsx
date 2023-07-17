@@ -62,7 +62,10 @@ export const Navbar = () => {
         />
         {size <= 750 && (
           <button
-            onClick={() => dispatch(showFullInput())}
+            onClick={() => {
+              dispatch(showFullInput());
+              !showInput && searchInputRef.current.focus();
+            }}
             className="btn searchBtn"
           >
             <AiOutlineSearch />
