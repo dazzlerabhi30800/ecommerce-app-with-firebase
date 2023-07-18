@@ -3,6 +3,7 @@ import { BiUser, BiSolidUser, BiCart, BiSolidCartAlt } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useSelector, useDispatch } from "react-redux";
 import { handleDropdown } from "../../ReduxReducers/Slice";
+import { Link } from "react-router-dom";
 
 export const NavbarMobile = () => {
   const showMenu = useSelector((data) => data.showAllComps.showDropdown);
@@ -10,13 +11,13 @@ export const NavbarMobile = () => {
   const dispatch = useDispatch();
   return (
     <nav className="navbarMobile">
-      <a href="#">
+      <Link to="/">
         <AiOutlineHome />
-      </a>
+      </Link>
       <a href="#">
         <BiUser />
       </a>
-      <a className="cartBtn" style={{ fontSize: "1.5rem" }} href="#">
+      <Link className="cartBtn" style={{ fontSize: "1.5rem" }} to="/cart">
         <BiCart />
         <span
           style={{ fontSize: "9px", padding: "1px 6px" }}
@@ -24,7 +25,7 @@ export const NavbarMobile = () => {
         >
           {showCartLength}
         </span>
-      </a>
+      </Link>
       <button
         style={{
           background: "transparent",

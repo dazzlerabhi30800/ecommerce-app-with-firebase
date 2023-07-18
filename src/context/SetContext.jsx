@@ -15,6 +15,10 @@ export const formatPrice = (price) => {
     .join(",");
 };
 
+export const handleActualPrice = (price, discount) => {
+  return Math.floor((price * 100) / (100 - discount));
+};
+
 export const SetContextProvider = ({ children }) => {
   const initialState = {
     show: false,

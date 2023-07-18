@@ -1,6 +1,6 @@
-.main--container {
+/* .main--container {
   padding-bottom: 7rem;
-}
+} */
 
 .banner--wrapper {
   display: flex;
@@ -21,9 +21,6 @@
 }
 
 
-/* :host>>>.swiper-pagination {
-  pointer-events: all !important;
-} */
 
 .swiper-slide {
   width: 100%;

@@ -20,7 +20,7 @@ const productSlice = createSlice({
           if (searchCart) {
             searchCart.quantity += 1;
           } else {
-            state.cart.push({ ...item, isAnimate: false });
+            state.cart.unshift({ ...item, isAnimate: false });
           }
         } else {
           item = item;
@@ -51,6 +51,15 @@ const productSlice = createSlice({
           state.cart = state.cart.filter((product) => product.id !== item.id);
         } else {
           return item;
+        }
+      });
+    },
+    animateRemoveItem: (state, action) => {
+      state.cart.map((item) => {
+        if (item.id === action.payload) {
+          item.isAnimate = !item.isAnimate;
+        } else {
+          return;
         }
       });
     },
@@ -100,6 +109,9 @@ const localStorageMiddleware = ({ getState }) => {
   return (next) => (action) => {
     const result = next(action);
     if (action.type === "allFeatures/searchProducts") return;
+    if (action.type === "allFeatures/animateRemoveItem") return;
+    if (action.type === "showComp/showFullInput") return;
+    if (action.type === "showComp/handleDropdown") return;
     localStorage.setItem("applicationState", JSON.stringify(getState()));
     return result;
   };
@@ -124,6 +136,7 @@ export const {
   addToCart,
   minusCart,
   removeCart,
+  animateRemoveItem,
   searchProducts,
   sortCarProducts,
 } = productSlice.actions;

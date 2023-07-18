@@ -6,6 +6,7 @@ import Scroll from "../../context/Scroll";
 import { useSelector } from "react-redux";
 import { searchProducts, showFullInput } from "../../ReduxReducers/Slice";
 import { useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const cartLength = useSelector((data) => data.allFeatures.cart);
@@ -15,12 +16,18 @@ export const Navbar = () => {
 
   const searchInputRef = useRef(null);
 
+  const location = useLocation();
+
   const dispatch = useDispatch();
   const size = Resize();
   const scroll = Scroll();
 
   return (
-    <header className={`headerPc ${scroll > 60 ? "glued" : ""}`}>
+    <header
+      className={`headerPc ${
+        scroll > 70 && location.pathname === "/" ? "glued" : ""
+      }`}
+    >
       <img
         style={{
           width: showInput && size <= 750 ? "0px" : "150px",
@@ -36,7 +43,7 @@ export const Navbar = () => {
       >
         <ul className="links">
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <a href="#">Electronics</a>
@@ -54,13 +61,14 @@ export const Navbar = () => {
           type="text"
           ref={searchInputRef}
           placeholder="Enter your search"
+          onBlur={() => dispatch(showFullInput())}
           onKeyDown={(e) =>
             e.code === "Enter" && dispatch(searchProducts(searchInput))
           }
           onChange={(e) => setSearchInput(e.target.value)}
           className={`searchInput ${showInput ? "searchShow" : ""}`}
         />
-        {size <= 750 && (
+        {size <= 750 && location.pathname === "/" && (
           <button
             onClick={() => {
               dispatch(showFullInput());
@@ -73,10 +81,9 @@ export const Navbar = () => {
         )}
       </div>
       <div className="additional--btns">
-        {size > 750 && (
+        {size > 750 && location.pathname === "/" && (
           <button
             onClick={() => {
-              console.log(searchInputRef.current);
               !showInput && searchInputRef.current.focus();
               dispatch(showFullInput());
             }}
@@ -85,7 +92,7 @@ export const Navbar = () => {
             <AiOutlineSearch />
           </button>
         )}
-        <a className="btn cartBtn" href="#">
+        <Link className="btn cartBtn" to="/cart">
           <AiOutlineShoppingCart />
           <span
             className={
@@ -94,7 +101,7 @@ export const Navbar = () => {
           >
             {cartLength.length}
           </span>
-        </a>
+        </Link>
         <span className="username">Hi, Username</span>
         <button className="btn logoutBtn">Logout</button>
       </div>

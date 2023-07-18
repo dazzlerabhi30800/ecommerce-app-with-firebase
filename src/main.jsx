@@ -3,10 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { SetContextProvider } from "./context/SetContext.jsx";
-import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "./ReduxReducers/Slice.jsx";
 import { Provider } from "react-redux";
 import store from "./ReduxReducers/Slice.jsx";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // const store = configureStore({
 //   reducer: {
@@ -17,9 +16,11 @@ import store from "./ReduxReducers/Slice.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <SetContextProvider>
     <Provider store={store}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <Router>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Router>
     </Provider>
   </SetContextProvider>
 );

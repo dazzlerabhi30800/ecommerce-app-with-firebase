@@ -5,6 +5,8 @@ import { Navbar } from "./Components/Navbar/Navbar";
 import { NavbarMobile } from "./Components/Navbar/NavbarMobile";
 import { Resize } from "./context/Resize";
 import "./Styles/style.css";
+import Cart from "./Components/CartPage/Cart";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const size = Resize();
@@ -12,7 +14,12 @@ function App() {
     <>
       <Navbar />
       {size <= 750 && <NavbarMobile />}
-      <Home />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/cart" element={<Cart />} />
+      </Routes>
+      {/* <Cart />
+      <Home /> */}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Resize } from "../../context/Resize";
-import { formatPrice } from "../../context/SetContext";
+import { formatPrice, handleActualPrice } from "../../context/SetContext";
 import { useDispatch } from "react-redux";
 import { addToCart, minusCart, removeCart } from "../../ReduxReducers/Slice";
 
@@ -8,9 +8,6 @@ const ProductComp = ({
   item: { name, stock, image, quantity, price, discount, id },
 }) => {
   const size = Resize();
-  const handleActualPrice = (price, discount) => {
-    return Math.floor((price * 100) / (100 - discount));
-  };
 
   const dispatch = useDispatch();
 
