@@ -18,10 +18,12 @@ const Cart = () => {
         {cart.length > 0 &&
           cart.map((item, index) => <CartItemComp item={item} key={index} />)}
       </div>
-      <div style={{ fontSize: "1.5rem" }} className="totalCartPrice">
-        Total Price -{" "}
-        <span style={{ fontWeight: "700" }}>₹{formatPrice(totalPrice)}</span>
-      </div>
+      {cart.length > 0 && (
+        <div style={{ fontSize: "1.5rem" }} className="totalCartPrice">
+          Total Price -{" "}
+          <span style={{ fontWeight: "700" }}>₹{formatPrice(totalPrice)}</span>
+        </div>
+      )}
     </main>
   );
 };
