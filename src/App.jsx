@@ -6,7 +6,7 @@ import { NavbarMobile } from "./Components/Navbar/NavbarMobile";
 import { Resize } from "./context/Resize";
 import "./Styles/style.css";
 import Cart from "./Components/CartPage/Cart";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/LoginPage/Login";
 import Register from "./Components/RegisterPage/Register";
 import { useContext, useEffect } from "react";
@@ -17,11 +17,17 @@ function App() {
   const size = Resize();
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
+  // console.log(currentUser.uid);
 
   useEffect(() => {
-    if (currentUser) return;
-    dispatch(resetCart());
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      return;
+    } else {
+      dispatch(resetCart());
+    }
   }, []);
+
   return (
     <>
       <Navbar />

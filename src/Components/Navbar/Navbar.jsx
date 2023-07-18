@@ -10,7 +10,7 @@ import {
   showFullInput,
 } from "../../ReduxReducers/Slice";
 import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/SetContext";
 import { auth } from "../../context/FirebaseConfig";
 import { signOut } from "firebase/auth";
@@ -26,6 +26,7 @@ export const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const size = Resize();
@@ -133,8 +134,15 @@ export const Navbar = () => {
           </Link>
         )}
       </div>
-      {currentUser && location.pathname !== "/" && (
-        <button onClick={() => signOut(auth)} className="btn logoutBtn">
+      {currentUser && size <= 750 && location.pathname !== "/" && (
+        <button
+          onClick={() => {
+            signOut(auth);
+            dispatch(resetCart());
+            navigate("/");
+          }}
+          className="btn logoutBtn"
+        >
           Logout
         </button>
       )}

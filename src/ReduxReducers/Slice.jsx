@@ -84,12 +84,9 @@ const productSlice = createSlice({
       }
     },
     resetCart: (state, action) => {
-      state.products = ProductData.products;
+      state.products = [...ProductData.products];
       state.cart = [];
     },
-    // sortCartAscending: (state, action) => {
-    //   state.products = state.products.sort((a, b) => a.price - b.price);
-    // },
   },
 });
 
