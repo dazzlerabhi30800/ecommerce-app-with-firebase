@@ -63,7 +63,7 @@ export const Navbar = () => {
           placeholder="Enter your search"
           onBlur={() => dispatch(showFullInput())}
           onKeyDown={(e) =>
-            e.code === "Enter" && dispatch(searchProducts(searchInput))
+            e.keyCode === 13 && dispatch(searchProducts(searchInput))
           }
           onChange={(e) => setSearchInput(e.target.value)}
           className={`searchInput ${showInput ? "searchShow" : ""}`}
