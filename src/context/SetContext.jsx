@@ -1,12 +1,8 @@
-import React, { createContext, useReducer } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "./FirebaseConfig";
 
-export const SetContext = createContext();
-
-export const Actions = {
-  showCart: "Show_Cart_Quantity",
-  showDropdown: "Show_Dropdown_Menu",
-  showSearchInput: "Show_Input_Search",
-};
+export const AuthContext = createContext();
 
 export const formatPrice = (price) => {
   return price
@@ -20,38 +16,20 @@ export const handleActualPrice = (price, discount) => {
 };
 
 export const SetContextProvider = ({ children }) => {
-  const initialState = {
-    show: false,
-    showMenu: false,
-    showInput: false,
-  };
+  const [currentUser, setCurrentUser] = useState({});
 
-  const stateReducer = (state, action) => {
-    switch (action.type) {
-      case "Show_Cart_Quantity":
-        return {
-          show: !state.show,
-        };
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
 
-      case "Show_Dropdown_Menu":
-        return {
-          showMenu: !state.showMenu,
-        };
-
-      case "Show_Input_Search":
-        return {
-          showInput: !state.showInput,
-        };
-      default:
-        return state;
-    }
-  };
-
-  const [state, dispatch] = useReducer(stateReducer, initialState);
-
+    return () => {
+      unsub();
+    };
+  }, []);
   return (
-    <SetContext.Provider value={{ data: state, dispatch }}>
+    <AuthContext.Provider value={{ currentUser }}>
       {children}
-    </SetContext.Provider>
+    </AuthContext.Provider>
   );
 };

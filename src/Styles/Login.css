@@ -9,12 +9,14 @@
 
 .formWrapper {
     background: #fce0e3;
+    box-shadow: 1px 1px 12px 4px #0000003f;
     border-radius: 3px;
     padding: 1.5rem 20px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: clamp(350px, 100%, 420px);
+    width: 100%;
+    max-width: 450px;
 }
 
 .formWrapper>h1 {

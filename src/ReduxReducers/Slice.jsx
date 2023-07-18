@@ -4,6 +4,8 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 import ProductData from "../Components/Data/ProductData.json";
+import { useContext } from "react";
+import { AuthContext } from "../context/SetContext";
 
 const productSlice = createSlice({
   name: "allFeatures",
@@ -81,6 +83,10 @@ const productSlice = createSlice({
         state.products = state.products.sort((a, b) => b.price - a.price);
       }
     },
+    resetCart: (state, action) => {
+      state.products = ProductData.products;
+      state.cart = [];
+    },
     // sortCartAscending: (state, action) => {
     //   state.products = state.products.sort((a, b) => a.price - b.price);
     // },
@@ -139,6 +145,7 @@ export const {
   animateRemoveItem,
   searchProducts,
   sortCarProducts,
+  resetCart,
 } = productSlice.actions;
 
 export const { showFullInput, handleDropdown } = menuSlice.actions;

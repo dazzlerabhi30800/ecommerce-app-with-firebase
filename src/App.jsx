@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import Home from "./Components/HomePage/Home";
 import { Navbar } from "./Components/Navbar/Navbar";
@@ -9,9 +9,19 @@ import Cart from "./Components/CartPage/Cart";
 import { Routes, Route } from "react-router-dom";
 import Login from "./Components/LoginPage/Login";
 import Register from "./Components/RegisterPage/Register";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "./context/SetContext";
+import { resetCart } from "./ReduxReducers/Slice";
 
 function App() {
   const size = Resize();
+  const dispatch = useDispatch();
+  const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (currentUser) return;
+    dispatch(resetCart());
+  }, []);
   return (
     <>
       <Navbar />

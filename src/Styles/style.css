@@ -141,7 +141,7 @@ nav a:active {
     padding: 0;
     color: rgb(16, 16, 16);
     position: relative;
-    font-size: 2.1rem;
+    font-size: 2rem;
 }
 
 .cartQuantity {
@@ -169,6 +169,7 @@ nav a:active {
     color: #ff7151;
     font-weight: 700;
     white-space: nowrap;
+    font-size: .85rem;
 }
 
 
@@ -177,7 +178,7 @@ nav a:active {
     background: linear-gradient(to left, #ea7185, rgb(255, 124, 174));
     color: #000000;
     text-decoration: none;
-    padding: 2px 8px;
+    padding: 2px 1rem;
     font-size: 1rem;
 }
 
