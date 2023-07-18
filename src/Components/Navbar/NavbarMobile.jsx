@@ -14,9 +14,9 @@ export const NavbarMobile = () => {
       <Link to="/">
         <AiOutlineHome />
       </Link>
-      <a href="#">
+      <Link to="/login">
         <BiUser />
-      </a>
+      </Link>
       <Link className="cartBtn" style={{ fontSize: "1.5rem" }} to="/cart">
         <BiCart />
         <span

@@ -1,6 +1,7 @@
 @import './Home.css';
 @import './Products.css';
 @import './Cart.css';
+@import './Login.css';
 
 header,
 nav {
@@ -171,11 +172,21 @@ nav a:active {
 }
 
 
+.loginBtn {
+    border-radius: 3px;
+    background: linear-gradient(to left, #ea7185, rgb(255, 124, 174));
+    color: #000000;
+    text-decoration: none;
+    padding: 2px 8px;
+    font-size: 1rem;
+}
+
+
 .logoutBtn {
     border-radius: 3px;
-    /* box-shadow: inset 3px 3px 5px #a6a5a5; */
-    background: linear-gradient(to left, #ea7185, rgb(255, 124, 174));
+    background: linear-gradient(to left, #353535, rgb(80, 79, 79));
     color: #fff;
+    text-decoration: none;
 }
 
 
@@ -248,8 +259,19 @@ nav a:active {
     }
 
 
+    .loginBtn:hover {
+        filter: brightness(130%) contrast(120%);
+        color: #000;
+    }
+
+
     a:hover,
     button:hover {
         cursor: pointer;
+    }
+
+
+    .additional--btns>button:hover {
+        filter: brightness(130%) contrast(120%);
     }
 }

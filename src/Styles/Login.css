@@ -1,0 +1,94 @@
+.credentials--wrapper {
+    min-height: calc(100vh - 53px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-Poppins);
+}
+
+
+.formWrapper {
+    background: #fce0e3;
+    border-radius: 3px;
+    padding: 1.5rem 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: clamp(350px, 100%, 420px);
+}
+
+.formWrapper>h1 {
+    font-size: 1.8rem;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
+
+form>input {
+    padding: 8px 10px;
+    outline: none;
+    border: none;
+    border: 2px solid rgb(56, 56, 56);
+    border-radius: 5px;
+}
+
+form>input:focus {
+    outline: none;
+}
+
+
+.submitBtn {
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    border: 2px solid #2c2b2b;
+    border-radius: 5px;
+    background: transparent;
+    transition: background 0.3s linear;
+    user-select: none;
+}
+
+.pass--icon {
+    position: absolute;
+    top: 40%;
+    right: 3%;
+    font-size: 1.3rem;
+}
+
+.formWrapper>span {
+    text-align: center;
+}
+
+.googleAuth {
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background: linear-gradient(to right, #8e8efd, #f377c4);
+    transition: background 0.3s linear;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+}
+
+
+@media (hover: hover) {
+    .submitBtn:hover {
+        background: #fff;
+    }
+
+    .googleAuth:hover {
+        filter: brightness(110%) contrast(120%);
+    }
+
+    .pass--icon:hover {
+        cursor: pointer;
+        color: #676666;
+    }
+}

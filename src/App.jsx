@@ -7,6 +7,8 @@ import { Resize } from "./context/Resize";
 import "./Styles/style.css";
 import Cart from "./Components/CartPage/Cart";
 import { Routes, Route } from "react-router-dom";
+import Login from "./Components/LoginPage/Login";
+import Register from "./Components/RegisterPage/Register";
 
 function App() {
   const size = Resize();
@@ -17,6 +19,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
       </Routes>
       {/* <Cart />
       <Home /> */}

@@ -104,6 +104,9 @@ export const Navbar = () => {
         </Link>
         <span className="username">Hi, Username</span>
         <button className="btn logoutBtn">Logout</button>
+        <Link to="/login" className="loginBtn">
+          Login
+        </Link>
       </div>
     </header>
   );
