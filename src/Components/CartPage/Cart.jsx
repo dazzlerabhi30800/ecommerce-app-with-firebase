@@ -1,12 +1,17 @@
 import { useSelector } from "react-redux";
 import CartItemComp from "./CartItemComp";
 import { formatPrice } from "../../context/SetContext";
+import { useEffect } from "react";
 
 const Cart = () => {
   const cart = useSelector((data) => data.allFeatures.cart);
   const totalPrice = cart
     .map(({ price, quantity }) => price * quantity)
     .reduce((a, b) => a + b, 0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="cartWrapper">
       <h1>
