@@ -39,7 +39,20 @@ const CheckoutForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
-      <button disabled={!stripe}>Submit</button>
+      <button
+        style={{
+          width: "fit-content",
+          padding: "8px 12px",
+          fontSize: "1.2rem",
+          background: "#fff",
+          boxShadow: "1px 1px 18px 3px rgba(0,0,0,0.3)",
+          margin: "5px auto",
+          borderRadius: "5px",
+        }}
+        disabled={!stripe}
+      >
+        Submit
+      </button>
       {errorMessage && <div>{errorMessage}</div>}
     </form>
   );

@@ -3,17 +3,15 @@ import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import Stripe from "stripe";
 import { useSelector } from "react-redux";
 
-let secretKey = import.meta.env.VITE_STRIPE_SECRET_KEY;
+// let secretKey = import.meta.env.VITE_STRIPE_SECRET_KEY;
 // let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2;
 let publishKey =
   "pk_live_51NVU2CSCjGfm4lCe1jozKlDObpABqt0jJ0kxH3dkVmtNPkpS0vrESG4hPmJnQL2XQfWtJj0QTOB9xehIKfUsCJYv00riAnwlTD";
 
 const initStripe = () => {
-  // const res = await axios.get("/api/publishable-key");
-  // const publishableKey = await res.data.publishable_key;
-
   return loadStripe(publishKey);
 };
 
@@ -21,11 +19,9 @@ const Checkout = () => {
   const stripePromise = initStripe();
 
   const [clientSecretSettings, setClientSecretSettings] = useState({
-    clientSecret: secretKey,
+    clientSecret: "",
     loading: true,
   });
-
-  console.log(publishKey);
 
   useEffect(() => {
     async function createPaymentIntent() {
