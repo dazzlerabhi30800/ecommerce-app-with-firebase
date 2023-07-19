@@ -36,7 +36,7 @@ fastifyp.post("/create-payment-intent", async () => {
 // Run the server
 const start = async () => {
   try {
-    await fastifyp.listen(5252);
+    await fastifyp.listen(443);
     console.log("Server listening ... ");
   } catch (err) {
     fastifyp.log.error(err);
