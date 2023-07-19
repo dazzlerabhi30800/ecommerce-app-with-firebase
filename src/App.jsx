@@ -12,12 +12,13 @@ import Register from "./Components/RegisterPage/Register";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/SetContext";
 import { resetCart } from "./ReduxReducers/Slice";
+import Checkout from "./Components/CheckoutPage/Checkout";
 
 function App() {
   const size = Resize();
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
-  // console.log(currentUser.uid);
+  // console.log(currentUser.photoURL);
 
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem("user"));
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/checkout" element={<Checkout />} />
       </Routes>
       {/* <Cart />
       <Home /> */}

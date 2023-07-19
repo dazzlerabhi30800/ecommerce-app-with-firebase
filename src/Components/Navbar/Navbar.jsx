@@ -115,8 +115,33 @@ export const Navbar = () => {
           </span>
         </Link>
         {currentUser && (
-          <span className="username">Hi, {currentUser.email}</span>
+          <img
+            style={{
+              borderRadius: "50%",
+              width: "35px",
+              height: "35px",
+              objectFit: "cover",
+              opacity: currentUser.photoURL ? "1" : "0",
+            }}
+            // src={
+            //   currentUser.photoURL ? currentUser.photoURL : "./dummy-user.jpg"
+            // }
+            src={currentUser.photoURL}
+            alt=""
+          />
         )}
+        {currentUser && (
+          <span
+            style={{ opacity: currentUser.email ? "1" : "0" }}
+            className="username"
+          >
+            Hi,{" "}
+            {currentUser.displayName
+              ? currentUser.displayName
+              : currentUser.email}
+          </span>
+        )}
+
         {currentUser && (
           <button
             onClick={() => {

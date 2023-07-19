@@ -61,7 +61,7 @@
 }
 
 .cartItem.removeItemAnim::after {
-    transition: width 0.8s linear, opacity 0.4s linear;
+    transition: width 0.8s linear 0.4s, opacity 0.4s linear;
     opacity: 1;
     width: 100%;
 }
@@ -122,6 +122,18 @@
 .totalCartPrice {
     background: #bdf1cf;
     padding: 8px 12px;
+}
+
+
+/* Checkout Btn */
+.checkout--btn {
+    padding: 8px 15px;
+    color: #fff;
+    text-decoration: none;
+    background: black;
+    font-weight: 700;
+    font-size: 1.5rem;
+    border-radius: 2px;
 }
 
 

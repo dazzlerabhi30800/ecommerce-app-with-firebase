@@ -1,0 +1,8 @@
+.checkout--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background: #f9f8f8;
+    padding: 2.5rem;
+    height: calc(100vh - 53px);
+}

@@ -2,6 +2,7 @@
 @import './Products.css';
 @import './Cart.css';
 @import './Login.css';
+@import './Checkout.css';
 
 header,
 nav {
