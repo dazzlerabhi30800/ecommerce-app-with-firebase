@@ -8,7 +8,7 @@ export default defineConfig({
     port: 4242,
     proxy: {
       "/api": {
-        target: window.location.origin,
+        target: "https://ecommerce-app-with-firebase.vercel.app/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
