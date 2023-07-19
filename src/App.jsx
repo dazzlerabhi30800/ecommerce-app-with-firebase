@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import "@stripe/stripe-js";
 import "./App.css";
 import Home from "./Components/HomePage/Home";
 import { Navbar } from "./Components/Navbar/Navbar";
@@ -6,18 +6,19 @@ import { NavbarMobile } from "./Components/Navbar/NavbarMobile";
 import { Resize } from "./context/Resize";
 import "./Styles/style.css";
 import Cart from "./Components/CartPage/Cart";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./Components/LoginPage/Login";
 import Register from "./Components/RegisterPage/Register";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/SetContext";
 import { resetCart } from "./ReduxReducers/Slice";
 import Checkout from "./Components/CheckoutPage/Checkout";
+import { useDispatch } from "react-redux";
 
 function App() {
   const size = Resize();
-  const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
+  const dispatch = useDispatch();
   // console.log(currentUser.photoURL);
 
   useEffect(() => {
