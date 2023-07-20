@@ -128,6 +128,7 @@ export const Navbar = () => {
             onClick={() => {
               signOut(auth);
               dispatch(resetCart());
+              navigate("/login");
             }}
             className="btn logoutBtn"
           >
