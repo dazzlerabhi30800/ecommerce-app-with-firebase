@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { formatPrice } from "../../context/SetContext";
 import StripeCheckout from "react-stripe-checkout";
 
-let secretKey = import.meta.env.VITE_STRIPE_SECRET_KEY_2;
-let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2;
+let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
 
 const Checkout = () => {
   const cart = useSelector((data) => data.allFeatures.cart);
