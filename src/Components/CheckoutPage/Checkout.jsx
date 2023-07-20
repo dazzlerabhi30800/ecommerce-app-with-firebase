@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { formatPrice } from "../../context/SetContext";
 import StripeCheckout from "react-stripe-checkout";
 
-let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+let publishKey =
+  "pk_live_51NVU2CSCjGfm4lCe1jozKlDObpABqt0jJ0kxH3dkVmtNPkpS0vrESG4hPmJnQL2XQfWtJj0QTOB9xehIKfUsCJYv00riAnwlTD";
 
 const Checkout = () => {
   const cart = useSelector((data) => data.allFeatures.cart);
@@ -29,7 +30,7 @@ const Checkout = () => {
         currency="INR"
         amount={totalAmount * 100}
         token={onToken}
-        stripeKey={`${publishKey}`}
+        stripeKey={publishKey}
       />
     </main>
   );
