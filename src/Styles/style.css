@@ -138,7 +138,7 @@ nav a:active {
     font-size: 1rem;
 }
 
-.cartBtn {
+.additional--btns .cartBtn {
     padding: 0;
     color: rgb(16, 16, 16);
     position: relative;
