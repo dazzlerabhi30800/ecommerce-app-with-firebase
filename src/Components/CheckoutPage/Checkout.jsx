@@ -4,8 +4,6 @@ import { formatPrice } from "../../context/SetContext";
 import StripeCheckout from "react-stripe-checkout";
 
 let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY.toString();
-// "pk_live_51NVU2CSCjGfm4lCe1jozKlDObpABqt0jJ0kxH3dkVmtNPkpS0vrESG4hPmJnQL2XQfWtJj0QTOB9xehIKfUsCJYv00riAnwlTD";
-// console.log(typeof publishKey);
 
 const Checkout = () => {
   const cart = useSelector((data) => data.allFeatures.cart);
