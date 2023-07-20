@@ -1,4 +1,3 @@
-import "@stripe/stripe-js";
 import "./App.css";
 import Home from "./Components/HomePage/Home";
 import { Navbar } from "./Components/Navbar/Navbar";

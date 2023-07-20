@@ -49,25 +49,6 @@ export const Navbar = () => {
           alt="Shopsy"
         />
       </Link>
-      {/* <nav
-        style={{ display: showInput && size > 750 && "none" }}
-        className="navbarPc"
-      >
-        <ul className="links">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <a href="#">Electronics</a>
-          </li>
-          <li>
-            <a href="#">Clothing</a>
-          </li>
-          <li>
-            <a href="#">Furniture</a>
-          </li>
-        </ul>
-      </nav> */}
       <div className={`searchContainer ${showInput ? "fullWidth" : ""}`}>
         <input
           type="text"

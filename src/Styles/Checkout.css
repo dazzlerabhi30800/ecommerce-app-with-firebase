@@ -4,5 +4,20 @@
     gap: 3rem;
     background: #f9f8f8;
     padding: 2.5rem;
+    align-items: center;
+    font-family: var(--font-Poppins);
     height: calc(100vh - 53px);
+}
+
+.checkout--wrapper>h1 {
+    font-size: clamp(2.5rem, 3vw, 4rem);
+}
+
+.checkout--wrapper>p {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+.checkout--wrapper>p>span {
+    font-weight: 700;
+    color: rgb(106, 113, 251);
 }

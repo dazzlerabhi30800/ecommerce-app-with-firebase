@@ -1,63 +1,38 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm";
-import Stripe from "stripe";
 import { useSelector } from "react-redux";
+import { formatPrice } from "../../context/SetContext";
+import StripeCheckout from "react-stripe-checkout";
 
-// let secretKey = import.meta.env.VITE_STRIPE_SECRET_KEY;
-// let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2;
-let publishKey =
-  "pk_live_51NVU2CSCjGfm4lCe1jozKlDObpABqt0jJ0kxH3dkVmtNPkpS0vrESG4hPmJnQL2XQfWtJj0QTOB9xehIKfUsCJYv00riAnwlTD";
-
-const initStripe = () => {
-  return loadStripe(publishKey);
-};
+let secretKey = import.meta.env.VITE_STRIPE_SECRET_KEY_2;
+let publishKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2;
 
 const Checkout = () => {
-  const stripePromise = initStripe();
+  const cart = useSelector((data) => data.allFeatures.cart);
+  const totalAmount = cart
+    .map((item) => item.price * item.quantity)
+    .reduce((a, b) => a + b, 0);
 
-  const [clientSecretSettings, setClientSecretSettings] = useState({
-    clientSecret: "",
-    loading: true,
-  });
-
-  useEffect(() => {
-    async function createPaymentIntent() {
-      const response = await axios.post("/api/create-payment-intent", {});
-      setClientSecretSettings({
-        clientSecret: response.data.client_secret,
-        loading: false,
-      });
-    }
-
-    createPaymentIntent();
-  }, []);
+  const onToken = (token) => {
+    console.log(token);
+  };
 
   return (
     <main className="checkout--wrapper">
-      Checkout Wrapper
-      <div>
-        {clientSecretSettings.loading ? (
-          <h3>Loading..</h3>
-        ) : (
-          <Elements
-            stripe={stripePromise}
-            options={{
-              clientSecret: clientSecretSettings.clientSecret,
-              appearance: { theme: "stripe" },
-              layout: {
-                type: "tabs",
-              },
-            }}
-          >
-            <CheckoutForm />
-          </Elements>
-        )}
-      </div>
+      <h1>Checkout</h1>
+      <p>
+        Your Total Item <span>{cart.length}</span> and Price{" "}
+        <span>₹{formatPrice(totalAmount)}</span>{" "}
+      </p>
+      <StripeCheckout
+        name="Shopsy"
+        billingAddress={true}
+        description="Enter your Details"
+        currency="INR"
+        amount={totalAmount * 100}
+        token={onToken}
+        stripeKey={publishKey}
+      />
     </main>
   );
 };
-
 export default Checkout;
