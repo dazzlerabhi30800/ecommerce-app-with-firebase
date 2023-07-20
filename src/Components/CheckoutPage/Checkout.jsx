@@ -29,7 +29,7 @@ const Checkout = () => {
         currency="INR"
         amount={totalAmount * 100}
         token={onToken}
-        stripeKey={publishKey}
+        stripeKey={`${publishKey}`}
       />
     </main>
   );
