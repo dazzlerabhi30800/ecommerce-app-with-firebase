@@ -138,12 +138,15 @@ nav a:active {
     font-size: 1rem;
 }
 
-.additional--btns .cartBtn {
+.cartBtn {
     padding: 0;
     color: rgb(16, 16, 16);
     position: relative;
     font-size: 2rem;
     /* background: red; */
+}
+
+.additional--btns .cartBtn {
     transform: translateY(5px);
 }
 
