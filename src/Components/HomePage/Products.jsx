@@ -13,7 +13,9 @@ const Products = () => {
   const handleScroll = () => {
     const totalHeight = window.innerHeight + window.scrollY;
     const scrollHeight = document.documentElement.scrollHeight;
-    if (totalHeight >= scrollHeight) {
+    const threshold = 70;
+    console.log(scrollHeight);
+    if (totalHeight + threshold >= scrollHeight) {
       setPage((prevState) =>
         prevState + 1 >= product.length ? 33 : prevState + 1
       );
