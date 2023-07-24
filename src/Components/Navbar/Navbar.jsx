@@ -33,11 +33,7 @@ export const Navbar = () => {
   const scroll = Scroll();
 
   return (
-    <header
-      className={`headerPc ${
-        scroll > 70 && location.pathname === "/" ? "glued" : ""
-      }`}
-    >
+    <header className="headerPc">
       <Link to="/">
         <img
           style={{

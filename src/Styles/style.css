@@ -40,14 +40,14 @@ nav a:active {
     box-shadow: 1px 1px 15px 3px #171718bd;
 }
 
-.glued {
+/* .glued {
     position: fixed;
     top: 0;
     background: #ffffffb6;
     backdrop-filter: blur(15px);
     left: 0;
     width: 100%;
-}
+} */
 
 
 /* Nav Bar Mobile Styling */

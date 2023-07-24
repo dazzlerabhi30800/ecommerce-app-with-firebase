@@ -18,9 +18,7 @@ function App() {
   const size = Resize();
   const cart = useSelector((data) => data.allFeatures.cart);
   const dispatch = useDispatch();
-  console.log(cart.length);
   const { currentUser } = useContext(AuthContext);
-  // console.log(currentUser.photoURL);
 
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem("user"));

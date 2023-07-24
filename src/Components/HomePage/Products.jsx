@@ -7,9 +7,23 @@ import { sortCarProducts } from "../../ReduxReducers/Slice";
 const Products = () => {
   let product = useSelector((data) => data.allFeatures.products);
   let loading = useSelector((data) => data.allFeatures.loading);
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
-  // console.log(product);
+  const handleScroll = () => {
+    const totalHeight = window.innerHeight + window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight;
+    if (totalHeight >= scrollHeight) {
+      setPage((prevState) =>
+        prevState + 1 >= product.length ? 33 : prevState + 1
+      );
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="products--section">
@@ -27,7 +41,7 @@ const Products = () => {
       </button>
       {product.length > 0 ? (
         <div className="product--wrapper">
-          {product.map((item, index) => (
+          {product.slice(0, page * 4).map((item, index) => (
             <ProductComp item={item} key={index} />
           ))}
         </div>
