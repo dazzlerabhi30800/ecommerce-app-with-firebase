@@ -17,6 +17,7 @@ export const handleActualPrice = (price, discount) => {
 
 export const SetContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
@@ -32,7 +33,7 @@ export const SetContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
   return (
-    <AuthContext.Provider value={{ currentUser }}>
+    <AuthContext.Provider value={{ currentUser, searchInput, setSearchInput }}>
       {children}
     </AuthContext.Provider>
   );

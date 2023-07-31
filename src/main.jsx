@@ -17,9 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <SetContextProvider>
     <Provider store={store}>
       <Router>
-        {/* <React.StrictMode> */}
         <App />
-        {/* </React.StrictMode> */}
       </Router>
     </Provider>
   </SetContextProvider>

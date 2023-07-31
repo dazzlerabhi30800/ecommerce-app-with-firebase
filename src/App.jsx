@@ -1,5 +1,6 @@
 import "./App.css";
 import Home from "./Components/HomePage/Home";
+import ReactDOM from "react-dom/client";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { NavbarMobile } from "./Components/Navbar/NavbarMobile";
 import { Resize } from "./context/Resize";
@@ -9,12 +10,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/LoginPage/Login";
 import Register from "./Components/RegisterPage/Register";
 import { useContext, useEffect } from "react";
-import { AuthContext } from "./context/SetContext";
-import { resetCart } from "./ReduxReducers/Slice";
+import { AuthContext, SetContextProvider } from "./context/SetContext";
+import store, { resetCart } from "./ReduxReducers/Slice";
 import Checkout from "./Components/CheckoutPage/Checkout";
-import { useDispatch, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 
-function App() {
+const App = () => {
   const size = Resize();
   const cart = useSelector((data) => data.allFeatures.cart);
   const dispatch = useDispatch();
@@ -58,6 +59,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;

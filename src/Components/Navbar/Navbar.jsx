@@ -18,12 +18,12 @@ import { signOut } from "firebase/auth";
 export const Navbar = () => {
   const cartLength = useSelector((data) => data.allFeatures.cart);
   const showInput = useSelector((data) => data.showAllComps.showInput);
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
 
   const searchInputRef = useRef(null);
 
   // current User
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, searchInput, setSearchInput } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -50,11 +50,9 @@ export const Navbar = () => {
           type="text"
           ref={searchInputRef}
           placeholder="Enter your search"
-          onBlur={() => dispatch(showFullInput())}
-          onKeyDown={(e) =>
-            e.keyCode === 13 && dispatch(searchProducts(searchInput))
-          }
           onChange={(e) => setSearchInput(e.target.value)}
+          onBlur={() => dispatch(showFullInput())}
+          onKeyDown={(e) => dispatch(searchProducts(searchInput))}
           className={`searchInput ${showInput ? "searchShow" : ""}`}
         />
         {size <= 750 && location.pathname === "/" && (
