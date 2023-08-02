@@ -21,19 +21,19 @@ import store, { resetCart } from "./ReduxReducers/Slice";
 import Checkout from "./Components/CheckoutPage/Checkout";
 import { Provider, useDispatch, useSelector } from "react-redux";
 
-const NavigateToHome = ({ children }) => {
-  if (currentUser && cart.length > 0) {
-    return children;
-  } else {
-    return <Navigate to="/" />;
-  }
-};
 const App = () => {
   const size = Resize();
   const cart = useSelector((data) => data.allFeatures.cart);
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
 
+  const NavigateToHome = ({ children }) => {
+    if (currentUser && cart.length > 0) {
+      return children;
+    } else {
+      return <Navigate to="/" />;
+    }
+  };
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem("user"));
     if (user) {

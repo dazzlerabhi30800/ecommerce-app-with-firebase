@@ -21,6 +21,8 @@ import { auth } from "../../context/FirebaseConfig";
 import { signOut } from "firebase/auth";
 
 export const Navbar = () => {
+  // "hello world"
+
   const cartLength = useSelector((data) => data.allFeatures.cart);
   const showInput = useSelector((data) => data.showAllComps.showInput);
   const [isBtn, setIsBtn] = useState(false);
