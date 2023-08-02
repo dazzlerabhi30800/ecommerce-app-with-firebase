@@ -6,7 +6,13 @@ import { NavbarMobile } from "./Components/Navbar/NavbarMobile";
 import { Resize } from "./context/Resize";
 import "./Styles/style.css";
 import Cart from "./Components/CartPage/Cart";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import Login from "./Components/LoginPage/Login";
 import Register from "./Components/RegisterPage/Register";
 import { useContext, useEffect } from "react";
@@ -15,6 +21,13 @@ import store, { resetCart } from "./ReduxReducers/Slice";
 import Checkout from "./Components/CheckoutPage/Checkout";
 import { Provider, useDispatch, useSelector } from "react-redux";
 
+const NavigateToHome = ({ children }) => {
+  if (currentUser && cart.length > 0) {
+    return children;
+  } else {
+    return <Navigate to="/" />;
+  }
+};
 const App = () => {
   const size = Resize();
   const cart = useSelector((data) => data.allFeatures.cart);
@@ -29,14 +42,6 @@ const App = () => {
       dispatch(resetCart());
     }
   }, []);
-
-  const NavigateToHome = ({ children }) => {
-    if (currentUser && cart.length > 0) {
-      return children;
-    } else {
-      return <Navigate to="/" />;
-    }
-  };
 
   return (
     <>

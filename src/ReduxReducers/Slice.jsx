@@ -66,14 +66,14 @@ const productSlice = createSlice({
       });
     },
     searchProducts: (state, action) => {
-      if (action.payload.length > 0) {
-        state.products = state.products.filter((product) =>
-          product.name.toLowerCase().includes(action.payload.toLowerCase())
-        );
-      } else {
+      if (action.payload === "") {
         let storageData = JSON.parse(localStorage.getItem("applicationState"))
           .allFeatures.products;
         state.products = storageData ? storageData : [...ProductData.products];
+      } else {
+        state.products = state.products.filter((product) =>
+          product.name.toLowerCase().includes(action.payload.toLowerCase())
+        );
       }
     },
     sortCarProducts: (state, action) => {
