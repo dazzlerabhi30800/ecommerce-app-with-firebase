@@ -50,9 +50,10 @@ export const Navbar = () => {
           type="text"
           ref={searchInputRef}
           placeholder="Enter your search"
+          value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           onBlur={() => dispatch(showFullInput())}
-          onKeyDown={(e) => dispatch(searchProducts(searchInput))}
+          onKeyDown={() => dispatch(searchProducts(searchInput))}
           className={`searchInput ${showInput ? "searchShow" : ""}`}
         />
         {size <= 750 && location.pathname === "/" && (

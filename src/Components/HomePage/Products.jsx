@@ -36,11 +36,12 @@ const Products = () => {
           className="filterButton"
           onClick={() => dispatch(sortCarProducts())}
         >
-          {product.length > 2
-            ? product[0].price > product[32].price
-              ? "Filter By Low to High"
-              : "Filter By High to Low"
-            : "Filter Your Products"}
+          {/* {product.length > 2 */}
+          {/*   ? product[0].price > product[32].price */}
+          {/*     ? "Filter By Low to High" */}
+          {/*     : "Filter By High to Low" */}
+          {/*   : "Filter Your Products"} */}
+          Sort By Price
           <BsArrowDownUp style={{ marginLeft: "8px" }} />
         </button>
       )}

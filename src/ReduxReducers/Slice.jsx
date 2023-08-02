@@ -4,8 +4,6 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 import ProductData from "../Components/Data/ProductData.json";
-import { useContext } from "react";
-import { AuthContext } from "../context/SetContext";
 
 const productSlice = createSlice({
   name: "allFeatures",
@@ -65,16 +63,15 @@ const productSlice = createSlice({
         }
       });
     },
-    searchProducts: (state, action) => {
-      if (action.payload === "") {
+    searchProducts: (state, { payload }) => {
+      if (payload.length <= 1) {
         let storageData = JSON.parse(localStorage.getItem("applicationState"))
           .allFeatures.products;
         state.products = storageData ? storageData : [...ProductData.products];
-      } else {
-        state.products = state.products.filter((product) =>
-          product.name.toLowerCase().includes(action.payload.toLowerCase())
-        );
       }
+      state.products = state.products.filter((product) =>
+        product.name.toLowerCase().includes(payload.toLowerCase())
+      );
     },
     sortCarProducts: (state, action) => {
       if (state.products[0].price > state.products[32].price) {
