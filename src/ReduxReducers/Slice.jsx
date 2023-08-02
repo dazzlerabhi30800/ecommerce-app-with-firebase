@@ -102,6 +102,9 @@ const menuSlice = createSlice({
     handleDropdown: (state, action) => {
       state.showDropdown = !state.showDropdown;
     },
+    disableFullInput: (state, action) => {
+      state.showInput = false;
+    },
   },
 });
 
@@ -142,7 +145,8 @@ export const {
   resetCart,
 } = productSlice.actions;
 
-export const { showFullInput, handleDropdown } = menuSlice.actions;
+export const { showFullInput, handleDropdown, disableFullInput } =
+  menuSlice.actions;
 
 // export default productSlice.reducer;
 export default store;

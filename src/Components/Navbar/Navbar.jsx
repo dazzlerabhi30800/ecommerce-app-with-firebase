@@ -1,10 +1,15 @@
 import React, { useContext, useRef, useState } from "react";
 import Logo from "/logo.png";
-import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineSearch,
+  AiOutlineLineHeight,
+} from "react-icons/ai";
 import { Resize } from "../../context/Resize";
 import Scroll from "../../context/Scroll";
 import { useSelector } from "react-redux";
 import {
+  disableFullInput,
   resetCart,
   searchProducts,
   showFullInput,
@@ -18,6 +23,7 @@ import { signOut } from "firebase/auth";
 export const Navbar = () => {
   const cartLength = useSelector((data) => data.allFeatures.cart);
   const showInput = useSelector((data) => data.showAllComps.showInput);
+  const [isBtn, setIsBtn] = useState(false);
   // const [searchInput, setSearchInput] = useState("");
 
   const searchInputRef = useRef(null);
@@ -31,6 +37,26 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const size = Resize();
   const scroll = Scroll();
+  // console.log(showInput);
+
+  const closeSearchBar = (e) => {
+    e.preventDefault();
+    const path = e.composedPath();
+    if (path.some((el) => el.id === "searchBtn--mobile")) {
+      setIsBtn(true);
+      document.removeEventListener("click", closeSearchBar);
+    } else if (path.some((el) => el.id === "searchBtn--pc")) {
+      setIsBtn(true);
+      document.removeEventListener("click", closeSearchBar);
+    } else {
+      setIsBtn(false);
+      dispatch(disableFullInput());
+    }
+  };
+
+  const handleBlur = () => {
+    document.addEventListener("click", closeSearchBar);
+  };
 
   return (
     <header className="headerPc">
@@ -52,7 +78,7 @@ export const Navbar = () => {
           placeholder="Enter your search"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          onBlur={() => dispatch(showFullInput())}
+          onBlur={handleBlur}
           onKeyDown={() => dispatch(searchProducts(searchInput))}
           className={`searchInput ${showInput ? "searchShow" : ""}`}
         />
@@ -63,6 +89,7 @@ export const Navbar = () => {
               !showInput && searchInputRef.current.focus();
             }}
             className="btn searchBtn"
+            id="searchBtn--mobile"
           >
             <AiOutlineSearch />
           </button>
@@ -76,6 +103,7 @@ export const Navbar = () => {
               dispatch(showFullInput());
             }}
             className="btn searchBtn"
+            id="searchBtn--pc"
           >
             <AiOutlineSearch />
           </button>
