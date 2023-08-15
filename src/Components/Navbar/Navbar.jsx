@@ -74,7 +74,11 @@ export const Navbar = () => {
         />
       </Link>
       <div className={`searchContainer ${showInput ? "fullWidth" : ""}`}>
+        <label style={{ display: "none" }} htmlFor="searchInput">
+          Search Input
+        </label>
         <input
+          name="searchInput"
           type="text"
           ref={searchInputRef}
           placeholder="Enter your search"

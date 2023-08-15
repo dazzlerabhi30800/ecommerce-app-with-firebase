@@ -157,8 +157,8 @@ nav a:active {
     color: #fff;
     background: linear-gradient(to top, #fe6e61, #d849ff);
     border-radius: 50%;
-    padding: 1px 5px;
-    font-size: 10px;
+    padding: 1px 6px;
+    font-size: 11px;
     font-weight: 700;
     opacity: 0;
     transform: translateY(-50px);
