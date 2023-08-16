@@ -37,7 +37,7 @@ const CartItemComp = ({
           <span className="quantity">{quantity}</span>
           <button onClick={() => dispatch(addToCart(id))}>+</button>
         </div>
-        <span className="totalPrice">₹{quantity * price}</span>
+        <span className="totalPrice">₹{formatPrice(quantity * price)}</span>
       </div>
       <button className="remove--item--btn" onClick={() => handleAnim(id)}>
         <LuTrash />
